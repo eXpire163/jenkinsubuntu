@@ -95,9 +95,9 @@ RUN apt-get update && apt-get install subversion locales
 #ENV LC_ALL en_US.UTF-8  
 
 
-RUN locale-gen de_DE.UTF-8  
-ENV LANG de_DE.UTF-8  
-ENV LANGUAGE de_DE:de  
-ENV LC_ALL de_DE.UTF-8  
+#RUN locale-gen de_DE.UTF-8  
+#ENV LANG de_DE.UTF-8  
+#ENV LANGUAGE de_DE:de  
+#ENV LC_ALL de_DE.UTF-8  
 
-
+RUN export LANGUAGE=en_US.UTF-8; export LANG=en_US.UTF-8; export LC_ALL=en_US.UTF-8; locale-gen en_US.UTF-8; DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
