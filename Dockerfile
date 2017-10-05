@@ -88,3 +88,9 @@ RUN apt-get update && apt-get install subversion
 #    PATH=/opt/ibm/java/bin:$PATH
     
 #end add ibm java
+
+RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8  
+
