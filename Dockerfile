@@ -31,7 +31,7 @@ RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
 
 
 USER root
-RUN apt-get update && apt-get install subversion
+RUN apt-get update && apt-get install subversion locales
 
 
 # add ibm java
