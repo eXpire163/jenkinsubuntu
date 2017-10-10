@@ -93,9 +93,10 @@ RUN set -eux; \
 #ENV LC_ALL en_US.UTF-8  
 
 
-#RUN locale-gen de_DE.UTF-8  
-#ENV LANG de_DE.UTF-8  
-#ENV LANGUAGE de_DE:de  
-#ENV LC_ALL de_DE.UTF-8  
+RUN locale-gen de_DE.UTF-8  
+ENV LANG de_DE.UTF-8  
+ENV LANGUAGE de_DE:de  
+ENV LC_ALL de_DE.UTF-8  
+RUN DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 
-RUN export LANGUAGE=de_DE.UTF-8; export LANG=de_DE.UTF-8; export LC_ALL=de_DE.UTF-8; locale-gen de_DE.UTF-8; DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
+#RUN export LANGUAGE=de_DE.UTF-8; export LANG=de_DE.UTF-8; export LC_ALL=de_DE.UTF-8; locale-gen de_DE.UTF-8; DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
