@@ -32,8 +32,6 @@ RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
 #get rid of admin password setup
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
 
-COPY /var/share/jenkins_ssh_key/id_rsa /root/.ssh/id_rsa
-RUN chmod 0600 /root/.ssh/id_rsa
 
 USER root
 RUN apt-get update && apt-get install subversion locales
@@ -113,3 +111,5 @@ RUN sed -i -e 's/# de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales && \
     update-locale LANG=de_DE.UTF-8
 ENV LANG de_DE.UTF-8
+
+ENTRYPOINT cp /var/share/jenkins_ssh_key/id_rsa /root/.ssh/id_rsa && chmod 0600 /root/.ssh/id_rsa
