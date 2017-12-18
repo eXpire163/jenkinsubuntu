@@ -32,6 +32,8 @@ RUN echo 2.0 > /usr/share/jenkins/ref/jenkins.install.UpgradeWizard.state
 #get rid of admin password setup
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
 
+COPY /var/share/jenkins_ssh_key/id_rsa /root/.ssh/id_rsa
+RUN chmod 0600 /root/.ssh/id_rsa
 
 USER root
 RUN apt-get update && apt-get install subversion locales
