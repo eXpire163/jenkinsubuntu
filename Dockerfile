@@ -112,4 +112,4 @@ RUN sed -i -e 's/# de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen && \
     update-locale LANG=de_DE.UTF-8
 ENV LANG de_DE.UTF-8
 
-ENTRYPOINT cp /var/share/jenkins_ssh_key/id_rsa /root/.ssh/id_rsa && chmod 0600 /root/.ssh/id_rsa
+# ENTRYPOINT cp /var/share/jenkins_ssh_key/id_rsa /root/.ssh/id_rsa && chmod 0600 /root/.ssh/id_rsa
